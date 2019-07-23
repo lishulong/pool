@@ -1,6 +1,5 @@
-package pool
-
 // Pool is another implemention of pool struct in golang.
+//
 // comparing to sync.Pool in standard library, it has the following features:
 //
 //     1. it has capacity.
@@ -20,3 +19,4 @@ package pool
 //
 // So if you need Resize to run concurrently with other APIs,
 // use WithLock mode, otherwise use WithoutLock mode.
+package pool

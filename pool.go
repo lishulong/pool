@@ -40,8 +40,8 @@ func New(maker EntityMaker, capacity int, mode int) *Pool {
 	return p
 }
 
-// Get gets one entity from pool
-// if the pool is empty, use EntityMaker to create a new one
+// Get gets one entity from pool.
+// if the pool is empty, use EntityMaker to create a new one.
 func (p *Pool) Get() (interface{}, error) {
 	var (
 		entity interface{}
@@ -66,7 +66,7 @@ func (p *Pool) Get() (interface{}, error) {
 	return entity, err
 }
 
-// Put puts an entity into pool
+// Put puts an entity into pool,
 // if Put operate on an destroied pool, it will return error.
 func (p *Pool) Put(entity interface{}) (err error) {
 	defer func() {
@@ -106,8 +106,8 @@ func (p *Pool) closeChan() []interface{} {
 
 }
 
-// Destroy destroies the pool
-// it also returns the rest of entities in pool
+// Destroy destroies the pool,
+// it also returns the rest of entities in pool.
 func (p *Pool) Destroy() []interface{} {
 	if p.lock != nil {
 		p.lock.Lock()
@@ -117,8 +117,9 @@ func (p *Pool) Destroy() []interface{} {
 	return p.closeChan()
 }
 
-// Resize resizes the capacity of Pool
-// all entities stored in Pool before Resize will be kept,
+// Resize resizes the capacity of Pool,
+// all entities stored in Pool before Resize will be kept.
+//
 // if new capacity is big enough for them, they are kept in Pool,
 // otherwise, the extra part of them will be returned.
 //

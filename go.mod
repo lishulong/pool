@@ -1,4 +1,4 @@
-module pool
+module github.com/lishulong/pool
 
 go 1.12
 
